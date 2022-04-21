@@ -9,7 +9,10 @@ arrowRestSum(3,5,6); // => 14
 arrowRestSum(1, 2, 3, 4, 5, 6, 7, 8, 9); // => 14
 arrowRestSum(0); // => 0
 ***********************************************************************/
-
+const arrowRestSum = (...nums) =>{
+  let sum = nums.reduce( (accum, value) => {return accum + value}, 0)
+  return sum
+}
 // your code here!
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
