@@ -23,6 +23,35 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 // your code here
+let lazyAdder = (num) => {
+  let sum = num;
+  count =0
+  return function (num2) {
+    sum+=num2
+    count+=1
+    if (count === 3){
+      // reset it back to 0
+      count=0
+      return sum
+    }
+    else {
+      // return [sum, count]
+      return
+    }
+  }
+}
+
+
+let firstAdd = lazyAdder(1);
+let secondAdd = firstAdd(2);
+let sum = secondAdd(3);
+console.log(sum); // prints 6
+
+// Example 2:
+let func1 = lazyAdder(10);
+let func2 = func1(20);
+let total = func2(3);
+console.log(total); // prints 33
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 

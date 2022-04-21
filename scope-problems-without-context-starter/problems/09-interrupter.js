@@ -9,7 +9,7 @@ console.log(rudePerson("how are you")); // prints "how what are what you"
 console.log(rudePerson("I like pie")); // prints "I what like what pie"
 
 
-Invoking the interrupter function again: 
+Invoking the interrupter function again:
 let rudePerson2 = interrupter("yo"); // => returns a function
 console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
@@ -17,7 +17,24 @@ console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 ***********************************************************************/
 
 // your code here!
+let interrupter = (str) => {
+  let appendedWord = str
+  return function (str2) {
+    words = str2.split(' ')
+    let arr= []
+    for (let i=0 ; i<words.length; i++){
+      // if its the last word, dont append the interrupter word (eg. dogs ""what")
+      if (i===words.length-1){
+        arr.push(words[i])
+      }
+      else {
+        arr.push(words[i], appendedWord)
+      }
 
+    }
+    return arr.join(' ')
+  }
+}
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
