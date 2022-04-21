@@ -1,3 +1,10 @@
+// After you initiate an object/external function, EVERY subsequent calling of that function (if it's accumulated from the last calling of the function)
+// everytime you are REINITIATING/REDECLARING a new instance from the last call/return of the original object instance
+// will require a nested function
+// think: you can only return the internal function when you call the immediate outside one.
+// If you have an object, you can only invoke the methods inside
+
+
 /***********************************************************************
 Write a function named: lazyAdder(firstNum). The lazyAdder function will
 accept a number and return a function. When the function returned by lazyAdder
@@ -23,27 +30,41 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 // your code here
-let lazyAdder = (num) => {
-  let sum = num;
-  count =0
+// let lazyAdder = (num) => {
+//   let sum = num;
+//   let count =0
+//   return function (num2) {
+//     sum+=num2
+//     count+=1
+//     if (count === 3){
+//       // reset it back to 0
+//       count=0
+//       return sum
+//     }
+//     else {
+//       // return [sum, count]
+//       return
+//     }
+//   }
+// }
+
+let lazyAdder = (num1) => {
+  let sum= num1
   return function (num2) {
-    sum+=num2
-    count+=1
-    if (count === 3){
-      // reset it back to 0
-      count=0
+    sum = sum + num2
+    return function (num3){
+      sum += num3
       return sum
     }
-    else {
-      // return [sum, count]
-      return
-    }
   }
+
 }
+
 
 
 let firstAdd = lazyAdder(1);
 let secondAdd = firstAdd(2);
+console.log("After secondAdd variable declared: " + secondAdd)
 let sum = secondAdd(3);
 console.log(sum); // prints 6
 
