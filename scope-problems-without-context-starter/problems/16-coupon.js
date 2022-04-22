@@ -16,6 +16,12 @@ console.log(twentyPercent([10, 20, 30])); // [ 8, 16, 24 ]
 ***********************************************************************/
 
 // your code here!
+const coupon = (discount) => {
+  return function (arr){
+    let newArr = arr.map( ele => ele * (1-discount))
+    return newArr
+  }
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
