@@ -26,7 +26,21 @@ Example 3:
 ***********************************************************************/
 
 // your code here
-
+const coinCollector= (num)=> {
+  // return twoCoins(25)
+  let count =0
+  let arr = []
+  return function (ele) {
+    count++
+    arr.push(ele)
+    if (count ===num){
+      return arr
+    }
+    else {
+      return 
+    }
+  }
+}
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
 try {
