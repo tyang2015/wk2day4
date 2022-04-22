@@ -43,6 +43,40 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 ***********************************************************************/
 
 // your code here
+const curriedSum = (num) => {
+  let arr=[]
+  let loopedFunction = (ele) => {
+    arr.push(ele)
+    if (arr.length === num) {
+      let sum =0;
+      for (let i=0 ; i<arr.length; i++){
+        sum +=arr[i]
+      }
+      return sum
+    }
+    else {
+      // loopedFunction(); => this is the Python way of doing recursion
+      return loopedFunction;
+    }
+  }
+  return loopedFunction
+}
+
+
+// Example:
+// 1
+// const sum = curriedSum(4); // returns a function
+// sum(5) // returns a function
+// sum(20) // returns a function
+// sum(30) // returns a function
+// sum(20); // => returns 75
+
+
+// const sum =curriedSum(4)(5)(20)(30)(20)
+// 2
+// this function can also be invoked like this:
+const sum = curriedSum(3)(2)(1)(7); // => returns 10
+console.log(sum)
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
